@@ -317,7 +317,7 @@ nav a:hover::after {
 }
 
 section {
-    padding: 6rem 0;
+    padding: 3rem 0;
     min-height: 100vh;
     /* display: flex;
         flex-direction: column;
@@ -340,6 +340,7 @@ h1 {
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, #e2e8f0, #94a3b8);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.2;
 }
@@ -647,5 +648,236 @@ footer {
     .skills-grid,
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* About Section Styles */
+#about {
+    position: relative;
+    z-index: 10;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-image {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(79, 70, 229, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #4f46e5, #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.decoration-circle {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 2px solid rgba(79, 70, 229, 0.3);
+    z-index: 1;
+    top: -10px;
+    left: -10px;
+    animation: rotate 20s linear infinite;
+}
+
+.decoration-circle.secondary {
+    width: 340px;
+    height: 340px;
+    border-color: rgba(124, 58, 237, 0.2);
+    top: -20px;
+    left: -20px;
+    animation-duration: 25s;
+    animation-direction: reverse;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #e2e8f0;
+    position: relative;
+}
+
+.about-content h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    border-radius: 2px;
+}
+
+.personal-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+    background: rgba(30, 41, 59, 0.5);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    margin-top: 0.3rem;
+}
+
+.bio p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #cbd5e1;
+}
+
+.interests {
+    margin: 2rem 0;
+}
+
+.interests h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #e2e8f0;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.tag {
+    background: rgba(79, 70, 229, 0.2);
+    color: #c7d2fe;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: rgba(79, 70, 229, 0.3);
+    transform: translateY(-2px);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Animations */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .profile-container {
+        margin: 0 auto 2rem;
+    }
+
+    .about-content h2:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .personal-info {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .decoration-circle {
+        width: 270px;
+        height: 270px;
+    }
+
+    .decoration-circle.secondary {
+        width: 290px;
+        height: 290px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+        justify-content: center;
     }
 }
